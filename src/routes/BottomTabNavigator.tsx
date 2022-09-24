@@ -1,24 +1,20 @@
+/* Imports */
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { Text, StyleSheet } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
-
-const Tab = createBottomTabNavigator()
-
+/* Screens */
 import Spendings from "../screens/Spendings"
 import Stats from "../screens/Stats"
 import Settings from "../screens/Settings"
 
-// Icons for the bottom tab navigator (all ionicons)
-// Spendings: ios-card ios-card-outline
-// Stats: ios-stats-chart ios-stats-chart-outline
-// Settings: ios-settings ios-settings-outline
-// Add spending: add-circle add-circle-outline
-// Icon component example: <Ionicons name="ios-card" size={24} color="black" />
+const Tab = createBottomTabNavigator()
 
+// The bottom tab navigator component (routing elements)
 const BottomTabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
+        tabBarShowLabel: false,
         tabBarIcon: ({ focused, color, size }) => {
           let iconName: any
           let rn = route.name
@@ -29,8 +25,13 @@ const BottomTabNavigator = () => {
           } else if (rn === "Settings") {
             iconName = focused ? "ios-settings" : "ios-settings-outline"
           }
-          // You can return any component that you like here!
-          return <Ionicons name={iconName} size={size} color={color} />
+          return (
+            <Ionicons
+              name={iconName}
+              size={size}
+              color={focused ? "#000000" : "#00000050"}
+            />
+          )
         },
         // Hides the appbar
         headerShown: false,
