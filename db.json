@@ -1,0 +1,26 @@
+{
+  "year": [
+    {
+      "2022": [
+        {
+          "month": [
+            {
+              "8": [
+                {
+                  "category": "mad",
+                  "amount": 45,
+                  "description": "durum kebab"
+                },
+                {
+                  "category": "mad",
+                  "amount": 35,
+                  "description": "pitakebab"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
