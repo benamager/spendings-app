@@ -1,12 +1,12 @@
 /* Imports */
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import { Ionicons } from "@expo/vector-icons"
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Ionicons } from "@expo/vector-icons";
 /* Screens */
-import Spendings from "../screens/Spendings"
-import Stats from "../screens/Stats"
-import Settings from "../screens/Settings"
+import Spendings from "../screens/Spendings";
+import Stats from "../screens/Stats";
+import Settings from "../screens/Settings";
 
-const Tab = createBottomTabNavigator()
+const Tab = createBottomTabNavigator();
 
 // The bottom tab navigator component (routing elements)
 const BottomTabNavigator = () => {
@@ -15,14 +15,14 @@ const BottomTabNavigator = () => {
       screenOptions={({ route }) => ({
         tabBarShowLabel: false,
         tabBarIcon: ({ focused, color, size }) => {
-          let iconName: any
-          let rn = route.name
+          let iconName: any;
+          let rn = route.name;
           if (rn === "Spendings") {
-            iconName = focused ? "ios-card" : "ios-card-outline"
+            iconName = focused ? "ios-card" : "ios-card-outline";
           } else if (rn === "Stats") {
-            iconName = focused ? "ios-stats-chart" : "ios-stats-chart-outline"
+            iconName = focused ? "ios-stats-chart" : "ios-stats-chart-outline";
           } else if (rn === "Settings") {
-            iconName = focused ? "ios-settings" : "ios-settings-outline"
+            iconName = focused ? "ios-settings" : "ios-settings-outline";
           }
           return (
             <Ionicons
@@ -30,7 +30,7 @@ const BottomTabNavigator = () => {
               size={size}
               color={focused ? "#000000" : "#00000050"}
             />
-          )
+          );
         },
         // Hides the appbar
         headerShown: false,
@@ -40,7 +40,7 @@ const BottomTabNavigator = () => {
       <Tab.Screen name="Stats" component={Stats} />
       <Tab.Screen name="Settings" component={Settings} />
     </Tab.Navigator>
-  )
-}
+  );
+};
 
-export default BottomTabNavigator
+export default BottomTabNavigator;
