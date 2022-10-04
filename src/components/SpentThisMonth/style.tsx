@@ -3,7 +3,6 @@ import { StyleSheet } from "react-native";
 
 const style = StyleSheet.create({
   container: {
-    marginTop: 50,
     alignSelf: "center",
   },
   spentText: {
@@ -11,21 +10,32 @@ const style = StyleSheet.create({
     fontWeight: "300",
     alignSelf: "center",
   },
-  amountContainer: {
+  spentContainer: {
     flexDirection: "row",
     marginTop: 10,
+    justifyContent: "center",
   },
   currency: {
     color: "#808080",
     fontWeight: "300",
     fontStyle: "italic",
+    marginRight: 6,
+  },
+  amountContainer: {
+    flexDirection: "row",
   },
   amount: {
     fontSize: 38,
     fontWeight: "700",
+    marginTop: -5,
   },
   amountDecimals: {
     fontSize: 24,
+    fontWeight: "700",
+  },
+  underline: {
+    borderBottomWidth: 1,
+    borderColor: "#80808050",
   },
 });
 

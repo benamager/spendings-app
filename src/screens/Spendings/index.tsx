@@ -37,7 +37,12 @@ const Spendings = () => {
         months={["2022-8", "2022-9", "2022-10"]}
         setMonth={setMonth}
       />
-      <SpentThisMonth />
+      <SpentThisMonth
+        amount={10.5}
+        header="Brugt denne måned"
+        underline={false}
+        marginTop={50}
+      />
       {/* <FlatList
         data={DATA}
         renderItem={renderItem}
