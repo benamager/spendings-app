@@ -1,24 +1,29 @@
 {
-  "year": [
+  "yearMonth": "2022-01",
+  "days": [
     {
-      "2022": [
+      "day": "01",
+      "events": [
         {
-          "month": [
-            {
-              "8": [
-                {
-                  "category": "mad",
-                  "amount": 45,
-                  "description": "durum kebab"
-                },
-                {
-                  "category": "mad",
-                  "amount": 35,
-                  "description": "pitakebab"
-                }
-              ]
-            }
-          ]
+          "title": "Pizza og dåse",
+          "price": 75,
+          "category": "Mad og drikke"
+        }
+      ]
+    }
+  ]
+}
+
+{
+  "yearMonth": "2022-02",
+  "days": [
+    {
+      "day": "01",
+      "events": [
+        {
+          "title": "Pizza og dåse",
+          "price": 75,
+          "category": "Mad og drikke"
         }
       ]
     }
