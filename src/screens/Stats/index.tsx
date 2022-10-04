@@ -1,6 +1,6 @@
-/* Imports */
-import { View, Text } from "react-native"
-import { StatusBar } from "expo-status-bar"
+/* stats.tsx screen */
+import { View, Text } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
 // Stats page
 const Stats = () => {
@@ -11,7 +11,7 @@ const Stats = () => {
       </Text>
       <StatusBar style="auto" />
     </View>
-  )
-}
+  );
+};
 
-export default Stats
+export default Stats;

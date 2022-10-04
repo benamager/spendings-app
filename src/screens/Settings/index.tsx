@@ -1,6 +1,6 @@
-/* Imports */
-import { View, Text } from "react-native"
-import { StatusBar } from "expo-status-bar"
+/* settings.tsx screen */
+import { View, Text } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
 // Settings page
 const Settings = () => {
@@ -11,7 +11,7 @@ const Settings = () => {
       </Text>
       <StatusBar style="auto" />
     </View>
-  )
-}
+  );
+};
 
-export default Settings
+export default Settings;
