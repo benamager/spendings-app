@@ -5,7 +5,7 @@ const style = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignSelf: "center",
-    marginTop: 50,
+    marginTop: 45,
     alignItems: "center",
   },
   icons: {
@@ -14,11 +14,13 @@ const style = StyleSheet.create({
   },
   monthText: {
     fontSize: 16,
-    borderWidth: 2,
+    borderWidth: 1,
     paddingVertical: 5,
-    paddingHorizontal: 24,
     marginHorizontal: 4,
     borderRadius: 18,
+    textTransform: "uppercase",
+    width: 180,
+    textAlign: "center",
   },
 });
 

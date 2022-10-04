@@ -14,8 +14,8 @@ const monthsInOrder = [
   "december",
 ];
 
-const getMonthFromIndex = (index: number) => {
+const getMonthName = (index: number) => {
   return monthsInOrder[index];
 };
 
-export default getMonthFromIndex;
+export default getMonthName;

@@ -5,7 +5,7 @@ import BottomTabNavigator from "./src/routes/BottomTabNavigator";
 
 export default function App() {
   const date: any = new Date();
-  //console.log(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate())
+  //console.log(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
 
   return (
     <NavigationContainer>
