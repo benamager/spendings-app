@@ -3,9 +3,9 @@ import { StyleSheet } from "react-native";
 
 const style = StyleSheet.create({
   container: {
-    marginTop: 50,
     marginLeft: 50,
     paddingRight: 14,
+    marginBottom: 40,
   },
   header: {
     flexDirection: "row",

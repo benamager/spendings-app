@@ -1,7 +1,7 @@
 /* spendings.tsx screen */
-import { View, Text, Button } from "react-native";
+import { View, Text, Button, TextInput, Pressable } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import style from "./style";
 import screenWrapper from "../../styles/screenWrapper";
@@ -99,6 +99,7 @@ const Spendings = ({ navigation }) => {
   ];
 
   const [month, setMonth] = useState("2022-10");
+  const inputRef: any = useRef();
 
   return (
     <View style={[screenWrapper.style, style.container]}>
@@ -118,6 +119,20 @@ const Spendings = ({ navigation }) => {
         underline={false}
         marginTop={50}
       />
+      <Pressable
+        style={style.inputContainer}
+        onPress={() => {
+          inputRef.current.focus();
+        }}
+      >
+        <Ionicons style={style.inputIcon} name={"search"} />
+        <TextInput
+          style={style.input}
+          value={null}
+          ref={inputRef}
+          placeholder="Søg i denne måned.."
+        />
+      </Pressable>
       <DaysFlatList dataForMonth={november.reverse()} monthName="november" />
       <StatusBar style="auto" />
     </View>

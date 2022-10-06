@@ -14,6 +14,23 @@ const style = StyleSheet.create({
   renderitem: {
     fontSize: 100,
   },
+  inputContainer: {
+    color: "#000000",
+    width: "100%",
+    marginTop: 50,
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    marginBottom: 10,
+    paddingRight: 15,
+  },
+  inputIcon: {
+    fontSize: 16,
+    marginRight: 10,
+  },
+  input: {
+    paddingVertical: 10,
+  },
 });
 
 export default style;
