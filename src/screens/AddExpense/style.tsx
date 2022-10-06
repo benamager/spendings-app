@@ -14,6 +14,16 @@ const style = StyleSheet.create({
     alignSelf: "center",
     bottom: 35,
   },
+  bottomRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingVertical: 5,
+    borderBottomWidth: 1,
+  },
+  input: {
+    width: "45%",
+  },
 });
 
 export default style;
