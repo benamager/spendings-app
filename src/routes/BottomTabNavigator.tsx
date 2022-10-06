@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Spendings from "../screens/Spendings";
 import Stats from "../screens/Stats";
 import Settings from "../screens/Settings";
+import AddExpense from "../screens/AddExpense";
 
 const Tab = createBottomTabNavigator();
 
@@ -23,6 +24,8 @@ const BottomTabNavigator = () => {
             iconName = focused ? "ios-stats-chart" : "ios-stats-chart-outline";
           } else if (rn === "Settings") {
             iconName = focused ? "ios-settings" : "ios-settings-outline";
+          } else if (rn === "Add") {
+            return null;
           }
           return (
             <Ionicons
@@ -39,6 +42,14 @@ const BottomTabNavigator = () => {
       <Tab.Screen name="Spendings" component={Spendings} />
       <Tab.Screen name="Stats" component={Stats} />
       <Tab.Screen name="Settings" component={Settings} />
+      <Tab.Screen
+        options={{
+          tabBarButton: () => null,
+          tabBarStyle: { display: "none" },
+        }}
+        name="Add"
+        component={AddExpense}
+      />
     </Tab.Navigator>
   );
 };

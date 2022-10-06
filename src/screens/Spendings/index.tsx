@@ -6,15 +6,15 @@ import { Ionicons } from "@expo/vector-icons";
 import style from "./style";
 import screenWrapper from "../../styles/screenWrapper";
 import MonthSelector from "../../components/MonthSelector";
+import { useNavigation } from "@react-navigation/native";
 import SpentThisMonth from "../../components/SpentThisMonth";
 import DaysFlatList from "../../templates/DaysFlatList";
-import AddExpense from "../../components/AddExpense";
 
 import saveObject from "../../functions/saveObject";
 import getObject from "../../functions/getObject";
 
 // Spendings page
-const Spendings = () => {
+const Spendings = ({ navigation }) => {
   const november = [
     {
       day: 1,
@@ -102,8 +102,12 @@ const Spendings = () => {
 
   return (
     <View style={[screenWrapper.style, style.container]}>
-      <AddExpense />
-      <Ionicons style={style.addCircle} size={38} name={"add-circle"} />
+      <Ionicons
+        style={style.addCircle}
+        size={38}
+        name={"add-circle"}
+        onPress={() => navigation.navigate("Add")}
+      />
       <MonthSelector
         months={["2022-8", "2022-9", "2022-10"]}
         setMonth={setMonth}
