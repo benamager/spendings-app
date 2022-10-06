@@ -4,13 +4,20 @@ import { StyleSheet } from "react-native";
 const style = StyleSheet.create({
   container: {
     marginTop: 50,
+    marginLeft: 50,
+    paddingRight: 14,
   },
   header: {
-    fontSize: 20,
     flexDirection: "row",
     justifyContent: "space-between",
     borderBottomWidth: 1,
-    borderBottomColor: "black",
+    borderBottomColor: "#808080",
+    marginBottom: 10,
+  },
+  headerIconsMargin: {
+    marginBottom: 10,
+    color: "#808080",
+    textTransform: "uppercase",
   },
 });
 

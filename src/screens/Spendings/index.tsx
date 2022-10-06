@@ -20,8 +20,18 @@ const Spendings = () => {
       events: [
         {
           title: "Pizza og dåse",
-          price: 75,
+          price: -75,
           category: "Mad og drikke",
+        },
+        {
+          title: "Pizza og dåse",
+          price: 100,
+          category: "Mad og drikke",
+        },
+        {
+          title: "Netto",
+          price: 750,
+          category: "Indkøb",
         },
       ],
     },
@@ -32,6 +42,56 @@ const Spendings = () => {
           title: "Pizza og dåse",
           price: 75,
           category: "Mad og drikke",
+        },
+      ],
+    },
+    {
+      day: 5,
+      events: [
+        {
+          title: "Pizza og dåse",
+          price: 75,
+          category: "Mad og drikke",
+        },
+      ],
+    },
+    {
+      day: 10,
+      events: [
+        {
+          title: "Pizza og dåse",
+          price: -75,
+          category: "Mad og drikke",
+        },
+        {
+          title: "Pizza og dåse",
+          price: 100,
+          category: "Mad og drikke",
+        },
+        {
+          title: "Netto",
+          price: 750,
+          category: "Indkøb",
+        },
+      ],
+    },
+    {
+      day: 15,
+      events: [
+        {
+          title: "Pizza og dåse",
+          price: -75,
+          category: "Mad og drikke",
+        },
+        {
+          title: "Pizza og dåse",
+          price: 100,
+          category: "Mad og drikke",
+        },
+        {
+          title: "Netto",
+          price: 750,
+          category: "Indkøb",
         },
       ],
     },
@@ -52,7 +112,7 @@ const Spendings = () => {
         underline={false}
         marginTop={50}
       />
-      <DaysFlatList dataForMonth={november} />
+      <DaysFlatList dataForMonth={november.reverse()} monthName="november" />
       <StatusBar style="auto" />
     </View>
   );

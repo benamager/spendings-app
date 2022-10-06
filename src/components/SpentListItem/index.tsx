@@ -5,12 +5,12 @@ import style from "./style";
 const SpentListItem = ({ category, price, title }) => {
   return (
     <View style={style.container}>
-      <Text style={{ color: "red" }}>🍔</Text>
+      <Text style={style.categoryIcon}>🍔</Text>
       <View>
-        <Text>Kantine mad</Text>
-        <Text>Mad og drikke</Text>
+        <Text style={style.title}>{title}</Text>
+        <Text style={style.category}>{category}</Text>
       </View>
-      <Text>50 DKK</Text>
+      <Text style={style.amount}>{price} DKK</Text>
     </View>
   );
 };
