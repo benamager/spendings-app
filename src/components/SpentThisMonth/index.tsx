@@ -4,6 +4,8 @@ import style from "./style";
 
 const SpentThisMonth = ({ amount, header, underline, marginTop }) => {
   let [amountBeforeDecimals, amountDecimals] = amount.toString().split(".");
+  // If amount before decimals is empty then add 0 placeholder
+  amountBeforeDecimals = amountBeforeDecimals ? amountBeforeDecimals : "0";
   // If there are no decimals, set the decimals to 00
   amountDecimals = amountDecimals ? amountDecimals : "00";
   // If there are only one decimal, add a 0 to the end

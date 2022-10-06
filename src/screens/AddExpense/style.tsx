@@ -8,6 +8,12 @@ const style = StyleSheet.create({
   abort: {
     color: "#808080",
   },
+  bottom: {
+    position: "absolute",
+    width: "100%",
+    alignSelf: "center",
+    bottom: 35,
+  },
 });
 
 export default style;

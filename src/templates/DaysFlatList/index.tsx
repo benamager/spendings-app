@@ -11,7 +11,7 @@ const DaysFlatList = ({ dataForMonth, monthName }) => {
 
     // Calculate the total amount spent for the day
     let totalAmount = 0;
-    eventsForDay.forEach((event) => {
+    eventsForDay.forEach((event: any) => {
       totalAmount += event.price;
     });
 
