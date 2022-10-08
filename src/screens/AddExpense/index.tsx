@@ -43,7 +43,7 @@ const AddExpense = ({ navigation }) => {
       />
       <View style={style.bottom}>
         <View style={style.bottomRow}>
-          <Text>I dag kl. 20.09</Text>
+          <Text>I dag kl. 20.09.</Text>
           <ButtonComponent
             title="gem udgift"
             textColor="white"
