@@ -1,9 +1,12 @@
 /* numpad.tsx component */
 import { Text, View, Button } from "react-native";
 import style from "./style";
+import { useEffect, useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 
-const Numpad = ({ amount, setAmount }) => {
+const Numpad = ({ expenseData, setExpenseData }) => {
+  const amount = expenseData.amount;
+
   const addNumber = (number: string) => {
     // No more than 2 decimals
     let amountAfterDecimals = amount.split(".")[1];
@@ -16,10 +19,10 @@ const Numpad = ({ amount, setAmount }) => {
     }
     // if account is empty, we don't want to add a 0 before the number
     if (amount === "0") {
-      setAmount(number);
+      setExpenseData(number);
       return;
     }
-    setAmount(amount + number);
+    setExpenseData({ ...expenseData, amount: amount + number });
   };
 
   // remove last character
@@ -27,10 +30,10 @@ const Numpad = ({ amount, setAmount }) => {
     // Remove extra character if there is a decimal
     let amountAfterDecimals = amount.split(".")[1];
     if (amountAfterDecimals && amountAfterDecimals.length == 1) {
-      setAmount(amount.slice(0, -2));
+      setExpenseData({ ...expenseData, amount: amount.slice(0, -2) });
       return;
     }
-    setAmount(amount.slice(0, -1));
+    setExpenseData({ ...expenseData, amount: amount.slice(0, -1) });
   };
 
   return (

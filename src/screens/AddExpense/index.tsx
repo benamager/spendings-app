@@ -6,44 +6,54 @@ import SpentThisMonth from "../../components/SpentThisMonth";
 import Numpad from "../../components/Numpad";
 import { useEffect, useState } from "react";
 import ButtonComponent from "../../components/ButtonComponent";
+import CategoriesModal from "../../components/CategoriesModal";
+
+const date = new Date();
+const defaultExpenseData = {
+  timestamp: date.getHours() + ":" + date.getMinutes(),
+  title: "",
+  amount: "",
+  categoryIcon: "",
+};
 
 const AddExpense = ({ navigation }) => {
-  // the amount shown in spentThisMonth component
-  const [amount, setAmount] = useState("0");
+  // saving all input data for adding expense
+  const [expenseData, setExpenseData] = useState(defaultExpenseData);
 
-  // when amount change parseint it and set it to data
-  useEffect(() => {
-    console.log(parseFloat(amount.replace(/\s/g, "").replace(",", ".")));
-  }, [amount]);
+  // parseFloat(amount.replace(/\s/g, "").replace(",", ".")),
 
   const [showModal, setShowModal] = useState(true);
 
+  useEffect(() => {
+    console.log(expenseData);
+  }, [expenseData]);
+
+  // Closing modal and resetting data
+  function handleAbort() {
+    navigation.navigate("Spendings");
+    setShowModal(false);
+  }
+
   return (
     <View style={[style.container, screenWrapper.style]}>
-      <Modal animationType="slide" visible={showModal} transparent={true}>
-        <Pressable
-          style={style.background}
-          onPress={() => setShowModal(!showModal)}
-        ></Pressable>
-        <View style={style.modal}>
-          <Text>Hej med dig</Text>
-        </View>
-      </Modal>
-      <Text
-        style={style.abort}
-        onPress={() => navigation.navigate("Spendings")}
-      >
+      <CategoriesModal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        expenseData={expenseData}
+        setExpenseData={setExpenseData}
+      />
+      <Text style={style.abort} onPress={() => handleAbort()}>
         Annuler
       </Text>
       <SpentThisMonth
-        amount={amount}
+        amount={expenseData.amount}
         header={null}
         underline={true}
         marginTop={120}
       />
       <View style={style.bottom}>
         <View style={style.bottomRow}>
-          <Text>I dag kl. 20.09.</Text>
+          <Text>I dag kl. {expenseData.timestamp}</Text>
           <ButtonComponent
             title="gem udgift"
             textColor="white"
@@ -54,17 +64,26 @@ const AddExpense = ({ navigation }) => {
         <View style={style.bottomRow}>
           <TextInput
             style={style.input}
-            value={null}
+            onChangeText={(text) =>
+              setExpenseData({ ...expenseData, title: text })
+            }
+            value={expenseData.title}
             placeholder="Navn på udgift, klik"
           />
-          <ButtonComponent
-            title="vælg kategori"
-            textColor="black"
-            bgColor="white"
-            onPress={() => setShowModal(!showModal)}
-          />
+
+          <View style={style.categorySelector}>
+            {expenseData.categoryIcon && (
+              <Text style={style.categoryIcon}>{expenseData.categoryIcon}</Text>
+            )}
+            <ButtonComponent
+              title="vælg kategori"
+              textColor="black"
+              bgColor="white"
+              onPress={() => setShowModal(!showModal)}
+            />
+          </View>
         </View>
-        <Numpad amount={amount} setAmount={setAmount} />
+        <Numpad expenseData={expenseData} setExpenseData={setExpenseData} />
       </View>
     </View>
   );

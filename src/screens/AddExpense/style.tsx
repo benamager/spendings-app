@@ -21,27 +21,16 @@ const style = StyleSheet.create({
     paddingVertical: 5,
     borderBottomWidth: 1,
   },
+  categorySelector: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  categoryIcon: {
+    marginRight: 7,
+    fontSize: 20,
+  },
   input: {
     width: "45%",
-  },
-  modal: {
-    flex: 1,
-    position: "absolute",
-    bottom: 30,
-    left: 15,
-    right: 15,
-    height: 300,
-    backgroundColor: "#ffffff",
-    borderRadius: 30,
-    zIndex: 10,
-  },
-  background: {
-    backgroundColor: "#00000020",
-    position: "absolute",
-    top: "-100%",
-    right: 0,
-    bottom: 0,
-    left: 0,
   },
 });
 
