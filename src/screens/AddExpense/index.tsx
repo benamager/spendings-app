@@ -6,29 +6,31 @@ import SpentThisMonth from "../../components/SpentThisMonth";
 import Numpad from "../../components/Numpad";
 import { useEffect, useState } from "react";
 import ButtonComponent from "../../components/ButtonComponent";
+import Modal from "../../templates/Modal";
 
 const AddExpense = ({ navigation }) => {
   // the amount shown in spentThisMonth component
   const [amount, setAmount] = useState("0");
 
-  // all data for saving the expense
-  const [data, setData] = useState({
-    amount: 0,
-    category: "",
-    title: "",
-    timeStamp: "",
-  });
-
   // when amount change parseint it and set it to data
   useEffect(() => {
-    setData({
-      ...data,
-      amount: parseFloat(amount.replace(/\s/g, "").replace(",", ".")),
-    });
+    console.log(parseFloat(amount.replace(/\s/g, "").replace(",", ".")));
   }, [amount]);
+
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <View style={[style.container, screenWrapper.style]}>
+      <Modal
+        leftText="Annuller"
+        title="Kategorier"
+        right="+"
+        showModal={showModal}
+        setShowModal={setShowModal}
+      >
+        <Text>HALLO</Text>
+      </Modal>
+
       <Text
         style={style.abort}
         onPress={() => navigation.navigate("Spendings")}
@@ -48,7 +50,7 @@ const AddExpense = ({ navigation }) => {
             title="gem udgift"
             textColor="white"
             bgColor="black"
-            onPress={() => console.log("pressed")}
+            onPress={() => navigation.navigate("Spendings")}
           />
         </View>
         <View style={style.bottomRow}>
@@ -61,7 +63,7 @@ const AddExpense = ({ navigation }) => {
             title="vælg kategori"
             textColor="black"
             bgColor="white"
-            onPress={() => console.log("pressed")}
+            onPress={() => setShowModal(true)}
           />
         </View>
         <Numpad amount={amount} setAmount={setAmount} />
