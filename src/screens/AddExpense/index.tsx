@@ -1,12 +1,11 @@
 /* addexpense.tsx screen */
-import { View, Text, TextInput } from "react-native";
+import { View, Text, TextInput, Modal, Pressable } from "react-native";
 import style from "./style";
 import screenWrapper from "../../styles/screenWrapper";
 import SpentThisMonth from "../../components/SpentThisMonth";
 import Numpad from "../../components/Numpad";
 import { useEffect, useState } from "react";
 import ButtonComponent from "../../components/ButtonComponent";
-import Modal from "../../templates/Modal";
 
 const AddExpense = ({ navigation }) => {
   // the amount shown in spentThisMonth component
@@ -17,20 +16,19 @@ const AddExpense = ({ navigation }) => {
     console.log(parseFloat(amount.replace(/\s/g, "").replace(",", ".")));
   }, [amount]);
 
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(true);
 
   return (
     <View style={[style.container, screenWrapper.style]}>
-      <Modal
-        leftText="Annuller"
-        title="Kategorier"
-        right="+"
-        showModal={showModal}
-        setShowModal={setShowModal}
-      >
-        <Text>HALLO</Text>
+      <Modal animationType="slide" visible={showModal} transparent={true}>
+        <Pressable
+          style={style.background}
+          onPress={() => setShowModal(!showModal)}
+        ></Pressable>
+        <View style={style.modal}>
+          <Text>Hej med dig</Text>
+        </View>
       </Modal>
-
       <Text
         style={style.abort}
         onPress={() => navigation.navigate("Spendings")}
@@ -63,7 +61,7 @@ const AddExpense = ({ navigation }) => {
             title="vælg kategori"
             textColor="black"
             bgColor="white"
-            onPress={() => setShowModal(true)}
+            onPress={() => setShowModal(!showModal)}
           />
         </View>
         <Numpad amount={amount} setAmount={setAmount} />
