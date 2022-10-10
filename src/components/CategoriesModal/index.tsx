@@ -52,28 +52,38 @@ const categoryData = [
 ];
 
 const CategoriesModal = ({
-  showModal,
-  setShowModal,
+  showModals,
+  setShowModals,
   expenseData,
   setExpenseData,
 }) => {
   // Closing modal and saving category icon and name to expenseData
   const pickCategory = (category: any) => {
     setExpenseData({ ...expenseData, categoryIcon: category.icon });
-    setShowModal(!showModal);
+    setShowModals({ ...showModals, categories: false });
+  };
+
+  const handleAddCategory = () => {
+    console.log("add");
+    setShowModals({ ...showModals, category: true, categories: false });
   };
 
   return (
-    <Modal visible={showModal} transparent={true}>
+    <Modal visible={showModals.categories} transparent={true}>
       <Pressable
         style={style.background}
-        onPress={() => setShowModal(!showModal)}
+        onPress={() => setShowModals({ ...showModals, categories: false })}
       ></Pressable>
       <View style={style.modal}>
         <View style={style.modalHeader}>
           <Text style={style.modalLeftText}>Annuller</Text>
           <Text style={style.modalTitle}>Kategorier</Text>
-          <Ionicons name="add" size={30} color="#808080" />
+          <Ionicons
+            name="add"
+            size={30}
+            color="#808080"
+            onPress={handleAddCategory}
+          />
         </View>
         <ScrollView contentContainerStyle={style.categoriesContainer}>
           {categoryData.map((category, i) => {

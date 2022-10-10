@@ -7,6 +7,7 @@ import Numpad from "../../components/Numpad";
 import { useEffect, useState } from "react";
 import ButtonComponent from "../../components/ButtonComponent";
 import CategoriesModal from "../../components/CategoriesModal";
+import CategoryModal from "../../components/CategoryModal";
 
 const date = new Date();
 const defaultExpenseData = {
@@ -22,7 +23,10 @@ const AddExpense = ({ navigation }) => {
 
   // parseFloat(amount.replace(/\s/g, "").replace(",", ".")),
 
-  const [showModal, setShowModal] = useState(true);
+  const [showModals, setShowModals] = useState({
+    categories: false,
+    category: false,
+  });
 
   useEffect(() => {
     console.log(expenseData);
@@ -31,17 +35,18 @@ const AddExpense = ({ navigation }) => {
   // Closing modal and resetting data
   function handleAbort() {
     navigation.navigate("Spendings");
-    setShowModal(false);
+    setShowModals({ ...showModals, categories: false });
   }
 
   return (
     <View style={[style.container, screenWrapper.style]}>
       <CategoriesModal
-        showModal={showModal}
-        setShowModal={setShowModal}
+        showModals={showModals}
+        setShowModals={setShowModals}
         expenseData={expenseData}
         setExpenseData={setExpenseData}
       />
+      <CategoryModal showModals={showModals} setShowModals={setShowModals} />
       <Text style={style.abort} onPress={() => handleAbort()}>
         Annuler
       </Text>
@@ -79,7 +84,7 @@ const AddExpense = ({ navigation }) => {
               title="vælg kategori"
               textColor="black"
               bgColor="white"
-              onPress={() => setShowModal(!showModal)}
+              onPress={() => setShowModals({ ...showModals, categories: true })}
             />
           </View>
         </View>
