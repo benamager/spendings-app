@@ -1,5 +1,12 @@
 /* categorymodal.tsx screen */
-import { View, Text, Modal, Pressable, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  Modal,
+  Pressable,
+  TextInput,
+  KeyboardAvoidingView,
+} from "react-native";
 import style from "./style";
 import { useEffect, useState } from "react";
 import ButtonComponent from "../ButtonComponent";
@@ -13,7 +20,11 @@ const CategoryModal = ({ showModals, setShowModals }) => {
           setShowModals({ ...showModals, category: false, categories: true })
         }
       ></Pressable>
-      <View style={style.modal}>
+      <KeyboardAvoidingView
+        behavior="padding"
+        keyboardVerticalOffset={20}
+        style={style.modal}
+      >
         <View style={style.modalHeader}>
           <Text style={style.modalTitle}>Tilføjer ny kategori</Text>
         </View>
@@ -49,7 +60,7 @@ const CategoryModal = ({ showModals, setShowModals }) => {
             />
           </View>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </Modal>
   );
 };

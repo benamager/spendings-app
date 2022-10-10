@@ -1,5 +1,12 @@
 /* addexpense.tsx screen */
-import { View, Text, TextInput, Modal, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  Modal,
+  Pressable,
+  KeyboardAvoidingView,
+} from "react-native";
 import style from "./style";
 import screenWrapper from "../../styles/screenWrapper";
 import SpentThisMonth from "../../components/SpentThisMonth";
@@ -56,7 +63,11 @@ const AddExpense = ({ navigation }) => {
         underline={true}
         marginTop={120}
       />
-      <View style={style.bottom}>
+      <KeyboardAvoidingView
+        behavior="padding"
+        keyboardVerticalOffset={-250}
+        style={style.bottom}
+      >
         <View style={style.bottomRow}>
           <Text>I dag kl. {expenseData.timestamp}</Text>
           <ButtonComponent
@@ -89,7 +100,7 @@ const AddExpense = ({ navigation }) => {
           </View>
         </View>
         <Numpad expenseData={expenseData} setExpenseData={setExpenseData} />
-      </View>
+      </KeyboardAvoidingView>
     </View>
   );
 };
