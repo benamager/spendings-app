@@ -16,7 +16,7 @@ const DaysFlatList = ({ dataForMonth, monthName }) => {
     });
 
     return (
-      <View style={style.container}>
+      <View key={item} style={style.container}>
         <View style={style.header}>
           <Text style={style.headerIconsMargin}>
             {item.day} {monthName}
