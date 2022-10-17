@@ -2,29 +2,63 @@ import { WebView } from "react-native-webview";
 
 /* pieChart with vanilla js in webview to circumvent me
 solving impossible errors with react-native-chart-kit */
-const PieChart = () => {
+const PieChart = ({ dataArray, bgColor }) => {
+  // getting the total sum of all data
+  const sum = dataArray.reduce((accumulator: number, object: any) => {
+    // accumulator/prevValue + new value
+    return accumulator + object.value;
+  }, 0);
+  const sumDividedBy360: number = 360 / sum;
+
+  // generating conic gradient from dataArray
+  let startDeg: number = 0;
+  let endDeg: number = 0;
+  let pieConicGradient = [];
+  dataArray.forEach((slice: any, i: number) => {
+    const slicePercentage = sumDividedBy360 * slice.value;
+    const sliceColor = dataArray[i].color;
+
+    if (i == 0) {
+      endDeg = slicePercentage;
+    } else {
+      startDeg = endDeg;
+      endDeg = startDeg + slicePercentage;
+    }
+    pieConicGradient.push(`${sliceColor} ${startDeg}deg ${endDeg}deg`);
+  });
+
   const javascript = `
     const pie = document.getElementById("pie");
   `;
 
-  const style = {
-    body: `
+  const style = `
+    body {
+      background-color: ${bgColor};
+    }
+    #pie {
+      display: grid;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: conic-gradient(${pieConicGradient.join(",")});
+    }
+    #pieCenter {
       background-color: #fff;
-    `,
-    pie: `
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: conic-gradient( 
-      red 6deg, orange 6deg 18deg, yellow 18deg 45deg, 
-      green 45deg 110deg, blue 110deg 200deg, purple 200deg);
-    `,
-  };
+      border-radius: 50%;
+      width: 60%;
+      height: 60%;
+      z-index: 1;
+      place-self: center center;
+    }
+  `;
 
   const html = `
   <!DOCTYPE html style="padding: 0; margin: 0;">
-    <body style="${style.body}">
-      <div id="pie" style="${style.pie}"></div>
+    <body>
+      <style>${style}</style>
+      <div id="pie"">
+        <div id="pieCenter"></div>
+      </div>
       <script>
         ${javascript}
       </script>
