@@ -5,10 +5,12 @@ import screenWrapper from "../../styles/screenWrapper";
 import PieChart from "../../components/PieChart";
 import MonthSelector from "../../components/MonthSelector";
 import { useState } from "react";
+import TagList from "../../components/TagList";
 
 // Stats page
 const Stats = () => {
   const [month, setMonth] = useState("2022-10");
+  const [activeTag, setActiveTag] = useState("Uge");
 
   return (
     <View style={screenWrapper.style}>
@@ -23,6 +25,11 @@ const Stats = () => {
           { value: 450, color: "blue" },
           { value: 100, color: "yellow" },
         ]}
+      />
+      <TagList
+        tags={["Uge", "Måned", "År"]}
+        activeTag={activeTag}
+        setActiveTag={setActiveTag}
       />
       <StatusBar style="auto" />
     </View>
