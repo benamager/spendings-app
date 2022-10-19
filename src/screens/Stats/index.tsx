@@ -7,6 +7,7 @@ import MonthSelector from "../../components/MonthSelector";
 import { useState } from "react";
 import TagList from "../../components/TagList";
 import SpentThisMonth from "../../components/SpentThisMonth";
+import StatsUpDown from "../../components/StatsUpDown";
 import style from "./style";
 
 // Stats page
@@ -29,6 +30,7 @@ const Stats = () => {
         valuta={"DKK"}
         valutaRight={true}
       />
+      <StatsUpDown activeTag={activeTag} up={false} />
       <View style={style.pieAndTagsContainer}>
         <PieChart
           bgColor="#ffffff"
