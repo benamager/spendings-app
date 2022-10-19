@@ -23,9 +23,10 @@ const Stats = () => {
         <PieChart
           bgColor="#ffffff"
           dataArray={[
-            { value: 250, color: "red" },
-            { value: 450, color: "blue" },
-            { value: 100, color: "yellow" },
+            { value: 250, color: "#12130F" },
+            { value: 450, color: "#F4AC45" },
+            { value: 100, color: "#96E6B3" },
+            { value: 271, color: "#DA3E52" },
           ]}
           widthHeight={170}
           centerWidthHeight="50%"

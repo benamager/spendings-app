@@ -16,7 +16,7 @@ const DaysFlatList = ({ dataForMonth, monthName }) => {
     });
 
     return (
-      <View key={item} style={style.container}>
+      <View style={style.container}>
         <View style={style.header}>
           <Text style={style.headerIconsMargin}>
             {item.day} {monthName}
@@ -34,7 +34,9 @@ const DaysFlatList = ({ dataForMonth, monthName }) => {
     <FlatList
       data={dataForMonth}
       renderItem={dayContainer}
-      keyExtractor={(item) => item.id}
+      keyExtractor={(item, index) => {
+        return item.day;
+      }}
     />
   );
 };
