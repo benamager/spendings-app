@@ -12,6 +12,7 @@ const style = StyleSheet.create({
   text: {
     textTransform: "uppercase",
     fontWeight: "500",
+    paddingHorizontal: 5,
   },
 });
 

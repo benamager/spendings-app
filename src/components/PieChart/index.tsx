@@ -1,8 +1,9 @@
 import { WebView } from "react-native-webview";
+import { View } from "react-native";
 
 /* pieChart with vanilla js in webview to circumvent me
 solving impossible errors with react-native-chart-kit */
-const PieChart = ({ dataArray, bgColor }) => {
+const PieChart = ({ dataArray, bgColor, widthHeight, centerWidthHeight }) => {
   // getting the total sum of all data
   const sum = dataArray.reduce((accumulator: number, object: any) => {
     // accumulator/prevValue + new value
@@ -24,59 +25,59 @@ const PieChart = ({ dataArray, bgColor }) => {
       startDeg = endDeg;
       endDeg = startDeg + slicePercentage;
     }
+    // how it works = conic-gradient([red 0deg 180deg, blue 180deg 360deg.join(", ")])
     pieConicGradient.push(`${sliceColor} ${startDeg}deg ${endDeg}deg`);
   });
 
-  const javascript = `
-    const pie = document.getElementById("pie");
-  `;
-
   const style = `
+    * {
+      margin: 0;
+      padding: 0;
+    }
     body {
       background-color: ${bgColor};
     }
     #pie {
-      display: grid;
-      width: 100%;
-      height: 100%;
+      position: relative;
+      width: 100vw;
+      height: 100vh;
       border-radius: 50%;
       background: conic-gradient(${pieConicGradient.join(",")});
     }
-    #pieCenter {
-      background-color: #fff;
+    #pie::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       border-radius: 50%;
-      width: 60%;
-      height: 60%;
-      z-index: 1;
-      place-self: center center;
+      background-color: ${bgColor};
+      width: ${centerWidthHeight};
+      height: ${centerWidthHeight};
     }
   `;
 
   const html = `
-  <!DOCTYPE html style="padding: 0; margin: 0;">
+  <!DOCTYPE html>
     <body>
       <style>${style}</style>
-      <div id="pie"">
-        <div id="pieCenter"></div>
-      </div>
-      <script>
-        ${javascript}
-      </script>
+      <div id="pie""/>
     </body>
   <html>
 `;
 
   return (
-    <WebView
-      style={{ maxWidth: 300, maxHeight: 300 }}
-      source={{
-        html: html,
-      }}
-      scrollEnabled={false}
-      javaScriptEnabled={true}
-      // for caching
-      domStorageEnabled={true}
-    />
+    <View style={{ width: widthHeight, height: widthHeight }}>
+      <WebView
+        source={{
+          html: html,
+        }}
+        scrollEnabled={false}
+        javaScriptEnabled={true}
+        // for caching
+        domStorageEnabled={true}
+      />
+    </View>
   );
 };
 
