@@ -61,6 +61,8 @@ const AddExpense = ({ navigation }) => {
         amount={expenseData.amount}
         header={null}
         underline={true}
+        alignSelf="center"
+        valuta="DKK"
         marginTop={120}
       />
       <KeyboardAvoidingView
@@ -74,6 +76,7 @@ const AddExpense = ({ navigation }) => {
             title="gem udgift"
             textColor="white"
             bgColor="black"
+            styleProp={null}
             onPress={() => navigation.navigate("Spendings")}
           />
         </View>
@@ -95,6 +98,7 @@ const AddExpense = ({ navigation }) => {
               title="vælg kategori"
               textColor="black"
               bgColor="white"
+              styleProp={null}
               onPress={() => setShowModals({ ...showModals, categories: true })}
             />
           </View>

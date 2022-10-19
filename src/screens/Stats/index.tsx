@@ -6,6 +6,7 @@ import PieChart from "../../components/PieChart";
 import MonthSelector from "../../components/MonthSelector";
 import { useState } from "react";
 import TagList from "../../components/TagList";
+import SpentThisMonth from "../../components/SpentThisMonth";
 import style from "./style";
 
 // Stats page
@@ -18,6 +19,15 @@ const Stats = () => {
       <MonthSelector
         months={["2022-8", "2022-9", "2022-10"]}
         setMonth={setMonth}
+      />
+      <SpentThisMonth
+        amount={37.5}
+        header={null}
+        underline={false}
+        alignSelf="flex-start"
+        marginTop={48}
+        valuta={"DKK"}
+        valutaRight={true}
       />
       <View style={style.pieAndTagsContainer}>
         <PieChart

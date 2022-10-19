@@ -117,6 +117,8 @@ const Spendings = ({ navigation }) => {
         amount={3750.5}
         header="Brugt denne måned"
         underline={false}
+        alignSelf="center"
+        valuta="DKK"
         marginTop={50}
       />
       <Pressable

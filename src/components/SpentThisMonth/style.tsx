@@ -2,24 +2,26 @@
 import { StyleSheet } from "react-native";
 
 const style = StyleSheet.create({
-  container: {
-    alignSelf: "center",
-  },
   spentText: {
     color: "#808080",
     fontWeight: "300",
-    alignSelf: "center",
+    textAlign: "center",
   },
   spentContainer: {
-    flexDirection: "row",
     marginTop: 10,
     justifyContent: "center",
   },
-  currency: {
+  currencyLeft: {
     color: "#808080",
     fontWeight: "300",
     fontStyle: "italic",
     marginRight: 6,
+  },
+  currencyRight: {
+    fontSize: 38,
+    fontWeight: "600",
+    marginTop: -5,
+    marginLeft: 12,
   },
   amountContainer: {
     flexDirection: "row",
