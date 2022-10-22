@@ -1,5 +1,5 @@
 /* stats.tsx screen */
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import screenWrapper from "../../styles/screenWrapper";
 import PieChart from "../../components/PieChart";
@@ -8,6 +8,7 @@ import { useState } from "react";
 import TagList from "../../components/TagList";
 import SpentThisMonth from "../../components/SpentThisMonth";
 import StatsUpDown from "../../components/StatsUpDown";
+import SpendingsTable from "../../components/SpendingsTable";
 import style from "./style";
 
 // Stats page
@@ -50,6 +51,7 @@ const Stats = () => {
           setActiveTag={setActiveTag}
         />
       </View>
+      <SpendingsTable />
       <StatusBar style="auto" />
     </View>
   );
