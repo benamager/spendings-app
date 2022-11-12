@@ -1,29 +1,21 @@
+// saving all existings months in a list
+[
+  "2022-01",
+  "2022-02",
+  "2022-03"
+]
+// example of saving data for single month in asyncStorage
 {
   "yearMonth": "2022-01",
   "days": [
     {
-      "day": "01",
+      "day": 1,
       "events": [
         {
           "title": "Pizza og dåse",
           "price": 75,
-          "category": "Mad og drikke"
-        }
-      ]
-    }
-  ]
-}
-
-{
-  "yearMonth": "2022-02",
-  "days": [
-    {
-      "day": "01",
-      "events": [
-        {
-          "title": "Pizza og dåse",
-          "price": 75,
-          "category": "Mad og drikke"
+          "category": "Mad og drikke",
+          "createdAt": 1640995200,
         }
       ]
     }
