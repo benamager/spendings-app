@@ -6,7 +6,6 @@ const getObject = async (key: string) => {
   try {
     // return object from async-storage
     const object = await AsyncStorage.getItem(key);
-    console.log(object);
     return { data: object, error: false };
   } catch (err) {
     // return error
