@@ -1,3 +1,19 @@
+// excalidraw
+// settings
+[
+  {
+    "name": "theme",
+    "value": "dark"
+  }
+]
+// saving all categories
+[
+  {
+    "id": "nanoid()",
+    "name": "Mad",
+    "icon": "🍔"
+  }
+]
 // saving all existings months in a list
 [
   "2022-01",
@@ -12,10 +28,11 @@
       "day": 1,
       "events": [
         {
+          "id": "nanoid()",
           "title": "Pizza og dåse",
           "price": 75,
-          "category": "Mad og drikke",
-          "createdAt": 1640995200,
+          "category": "{Category ID}",
+          "createdAt": "2022-01-13-12:00",
         }
       ]
     }
