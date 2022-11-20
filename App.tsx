@@ -3,15 +3,21 @@
 import { NavigationContainer } from "@react-navigation/native";
 import BottomTabNavigator from "./src/routes/BottomTabNavigator";
 
-import getObject from "./src/functions/getObject";
+import useGetStorage from "./src/hooks/useGetStorage";
+import useSaveStorage from "./src/hooks/useSaveStorage";
+import useTime from "./src/hooks/useTime";
+import { useEffect } from "react";
 
 export default function App() {
-  const date: any = new Date();
-  //console.log(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
+  const { data, error, loading } = useGetStorage("months");
 
-  getObject("yooo").then((res) => {
-    console.log(res.data);
-  });
+  const Time = useTime("yearMonth");
+  console.log(Time);
+
+  if (data === null) {
+    console.log("data doesn't exist");
+  }
+  //useSaveStorage("user", { name: "John", age: 30 });
 
   return (
     <NavigationContainer>
