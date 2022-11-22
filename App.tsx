@@ -2,22 +2,12 @@
 
 import { NavigationContainer } from "@react-navigation/native";
 import BottomTabNavigator from "./src/routes/BottomTabNavigator";
-
-import useGetStorage from "./src/hooks/useGetStorage";
-import useSaveStorage from "./src/hooks/useSaveStorage";
-import useTime from "./src/hooks/useTime";
-import { useEffect } from "react";
+import useOnLoadStorage from "./src/hooks/useOnLoadStorage";
 
 export default function App() {
-  const { data, error, loading } = useGetStorage("months");
-
-  const Time = useTime("yearMonth");
-  console.log(Time);
-
-  if (data === null) {
-    console.log("data doesn't exist");
-  }
-  //useSaveStorage("user", { name: "John", age: 30 });
+  // checks if first installation, if so, sets up storage
+  // if not, then is new month? if so, then sets up new month
+  useOnLoadStorage();
 
   return (
     <NavigationContainer>

@@ -10,9 +10,6 @@ import { useNavigation } from "@react-navigation/native";
 import SpentThisMonth from "../../components/SpentThisMonth";
 import DaysFlatList from "../../templates/DaysFlatList";
 
-import saveObject from "../../functions/saveObject";
-import getObject from "../../functions/getObject";
-
 // Spendings page
 const Spendings = ({ navigation }) => {
   const november = [

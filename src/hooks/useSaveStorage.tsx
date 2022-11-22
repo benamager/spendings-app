@@ -5,7 +5,7 @@ import { useEffect } from "react";
 // get data from async-storage
 const useSaveStorage = (key: any, data: any) => {
   useEffect(() => {
-    if (key && data) {
+    if (key !== null && data !== null) {
       (async () => {
         try {
           // save data to async-storage

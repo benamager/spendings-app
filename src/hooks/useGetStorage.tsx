@@ -9,19 +9,16 @@ const useGetStorage = (key: string) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    (async () => {
-      try {
-        // get data from async-storage
-        const object = await AsyncStorage.getItem(key);
-        const json = JSON.parse(object);
-        setData(json);
+    try {
+      AsyncStorage.getItem(key).then((res) => {
+        setData(JSON.parse(res));
         setLoading(false);
-      } catch (err) {
-        // if err set error
-        setError(err);
-        setLoading(false);
-      }
-    })();
+      });
+    } catch (err) {
+      // if err set error
+      setError(err);
+      setLoading(false);
+    }
   }, [key]);
 
   return { data, error, loading };
